@@ -68,6 +68,7 @@ Foreign key(RFIDtag) references TagStudent(RFIDtag)
 -- جدول الأعذار
 create table Excuse(
 ID int not null auto_increment,
+R_ID int not null,
 reason  varchar(255) not null,
 picture varchar(500),
 status ENUM ('مقبول', 'مرفوض'),
