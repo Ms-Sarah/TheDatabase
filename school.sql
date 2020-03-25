@@ -7,7 +7,7 @@ name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
 picture varchar(500),
-role ENUM ('مشرفه', 'موظفة المقصف') not null,
+role ENUM ('admin', 'canteen employee') not null,
 primary key(username)
 );
 
