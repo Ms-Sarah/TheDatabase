@@ -1,10 +1,3 @@
--- جدول مستخدمين النظام
-create table SuperUser(
-username int  not null,
-password int  not null,
-primary key(username)
-);
-
 -- جدول الموظفين
 create table Employee(
 username int not null,
@@ -55,13 +48,11 @@ Foreign key(ID) references Student(ID)
 
 -- جدول الريدر الأول
 create table Reader1(
-ID int not null,
-R_ID int not null,
-RFIDtag int not null,
-time timestamp not null,
-status ENUM ('مقبول', 'مرفوض'),
-primary key(ID),
-Foreign key(RFIDtag) references TagStudent(RFIDtag)
+ID int not null auto_increment,
+RFIDtag not null,
+status int not null,
+date timestamp not null,
+primary key(ID)
 );
 
 -- جدول الأعذار
@@ -72,16 +63,16 @@ reason  varchar(255) not null,
 picture varchar(500),
 status ENUM ('مقبول', 'مرفوض'),
 primary key(ID),
-Foreign key(R_ID) references Reader1(ID)
+Foreign key(S_ID) references Student(ID)
 );
 
 -- جدول الريدر ٢
 create table Reader2(
-ID int not null,
-RFIDtag int not null,
-time timestamp not null,
-primary key(ID),
-Foreign key(RFIDtag) references TagStudent(RFIDtag)
+ID int not null auto_increment,
+RFIDtag not null,
+status int not null,
+date timestamp not null,
+primary key(ID)
 );
 
 -- جدول عملية الدفع
@@ -91,7 +82,7 @@ R_ID int not null,
 value  float not null,
 status ENUM ('مقبول', 'مرفوض'),
 primary key(ID),
-Foreign key(R_ID) references Reader2(ID)
+Foreign key(S_ID) references Student(ID)
 );
 
 -- جدول الاستئذان
