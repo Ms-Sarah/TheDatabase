@@ -49,7 +49,7 @@ Foreign key(ID) references Student(ID)
 -- جدول الريدر الأول
 create table Reader1(
 ID int not null auto_increment,
-RFIDtag not null,
+RFIDtag int not null,
 status int not null,
 date timestamp not null,
 primary key(ID)
@@ -58,7 +58,7 @@ primary key(ID)
 -- جدول الأعذار
 create table Excuse(
 ID int not null auto_increment,
-R_ID int not null,
+S_ID int not null,
 reason  varchar(255) not null,
 picture varchar(500),
 status ENUM ('مقبول', 'مرفوض'),
@@ -69,7 +69,7 @@ Foreign key(S_ID) references Student(ID)
 -- جدول الريدر ٢
 create table Reader2(
 ID int not null auto_increment,
-RFIDtag not null,
+RFIDtag int not null,
 status int not null,
 date timestamp not null,
 primary key(ID)
@@ -78,7 +78,7 @@ primary key(ID)
 -- جدول عملية الدفع
 create table Pay(
 ID int not null auto_increment,
-R_ID int not null,
+S_ID int not null,
 value  float not null,
 status ENUM ('مقبول', 'مرفوض'),
 primary key(ID),
