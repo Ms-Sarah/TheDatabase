@@ -6,13 +6,13 @@ primary key(username)
 );
 
 -- جدول الموظفين
+-- ID هنا هو الرقم الوظيفي
 create table Employee(
 ID int not null,
 username int not null,
 name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
-gender ENUM ('ذكر', 'أنثى') not null,
 picture varchar(500),
 type ENUM ('مشرفه', 'موظفة المقصف') not null,
 primary key(ID),
@@ -20,13 +20,13 @@ Foreign key(username) references Users(username)
 );
 
 -- جدول أولياء الأمور
+-- ID هنا هو رقم الهوية
 create table Guardian(
 ID int not null,
 username int not null,
 name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
-gender ENUM ('ذكر', 'أنثى') not null,
 picture varchar(500),
 primary key(ID),
 Foreign key(username) references Users(username)
@@ -39,7 +39,6 @@ G_ID int not null,
 name varchar(255) not null,
 class ENUM ('سادس', 'خامس','رابع') not null,
 grop ENUM ('أ', 'ب') not null,
-gender ENUM ('ذكر', 'أنثى') not null,
 picture varchar(500),
 balance float not null,
 primary key(ID),

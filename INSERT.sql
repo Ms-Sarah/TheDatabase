@@ -4,14 +4,14 @@ insert into Users(username, password) values(436007226, 5678);
 insert into Users(username, password) values(436004676, 4321);
 insert into Users(username, password) values(436018000, 9876);
 
-insert into Employee(ID, username, name, phone, address, gender, type) values(103254, 436036137, 'أصايل علي الزهراني', 05928600, 'الشوقية', 'أثنى', 'مشرفه');
-insert into Employee(ID, username, name, phone, address, gender, type) values(769801, 436007226, 'غيداء فيصل الحازمي', 0554589171, 'العمرة', 'أثنى', 'موظفة المقصف');
+insert into Employee(ID, username, name, phone, address, type) values(103254, 436036137, 'أصايل علي الزهراني', 05928600, 'الشوقية', 'مشرفه');
+insert into Employee(ID, username, name, phone, address, type) values(769801, 436007226, 'غيداء فيصل الحازمي', 0554589171, 'العمرة', 'موظفة المقصف');
 
-insert into Guardian(ID, username, name, phone, address, gender) values(113254, 436004676, 'ساره مبارك اللحياني', 0544707604, 'عين شمس', 'أثنى');
-insert into Guardian(ID, username, name, phone, address, gender) values(223451, 436018000, 'شيماء نادر الحربي', 0545944165, 'النوارية', 'أثنى');
+insert into Guardian(ID, username, name, phone, address) values(113254, 436004676, 'ساره مبارك اللحياني', 0544707604, 'عين شمس', );
+insert into Guardian(ID, username, name, phone, address) values(223451, 436018000, 'شيماء نادر الحربي', 0545944165, 'النوارية');
 
-insert into Student(ID, G_ID, name, class, grop, gender, balance) values(6137,113254, 'لينه أسامة اللحياني', 'سادس', 'أ', 'أثنى', 100);
-insert into Student(ID, G_ID, name, class, grop, gender, balance) values(7226,113254, 'بتول أحمد الحربي', 'خامس', 'ب', 'أثنى', 150);
+insert into Student(ID, G_ID, name, class, grop, balance) values(6137,113254, 'لينه أسامة اللحياني', 'سادس', 'أ', 100);
+insert into Student(ID, G_ID, name, class, grop, balance) values(7226,113254, 'بتول أحمد الحربي', 'خامس', 'ب', 150);
 
 insert into TagStudent(RFIDtag, ID) values(1111,6137);
 insert into TagStudent(RFIDtag, ID) values(2222,7226);
