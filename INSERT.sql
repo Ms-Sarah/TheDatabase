@@ -1,6 +1,6 @@
 
 insert into Employee(username, password, job_no, name, phone, address, role) values(436036137, 1234, 103254, 'أصايل علي الزهراني', 0595928600, 'الشوقية', 'مشرفه');
-insert into Employee(username, password, job_no, name, phone, address, role) values(431234567, 6754, 098765, 'سما محمد القحطاني', 0548765490, 'الشرايع', 'موظفة المقصف');
+insert into Employee(username, password, job_no, name, phone, address, role) values(431234567, 6754, 098765, 'سما محمد القحطاني', 0548765490, 'الشرايع', 'canteen employee');
 insert into Employee(username, password, job_no, name, phone, address, role) values(436007226, 5678, 769801, 'غيداء فيصل الحازمي', 0554589171, 'العمرة', 'مشرفه');
 
 insert into Guardian(username, password, ID, name, phone, address) values(436016204, 5678, 337689, 'رولا محمد البركاتي', 0509709939, 'أبو عروه');
