@@ -1,110 +1,42 @@
--- جدول الموظفين
-create table Employee(
-username int not null,
-password int not null,
-job_no int not null,
-name varchar(255) not null,
-phone int not null,
-address varchar(255) not null,
-picture varchar(500),
-role ENUM ('مشرفه', 'موظفة المقصف') not null,
-primary key(username)
-);
 
--- جدول أولياء الأمور
--- ID هنا هو رقم الهوية
-create table Guardian(
-username int not null,
-password int  not null,
-ID int not null,
-name varchar(255) not null,
-phone int not null,
-address varchar(255) not null,
-picture varchar(500),
-primary key(username)
-);
+insert into Employee(username, password, job_no, name, phone, address, role) values(436036137, 1234, 103254, 'أصايل علي الزهراني', 0595928600, 'الشوقية', 'مشرفه');
+insert into Employee(username, password, job_no, name, phone, address, role) values(431234567, 6754, 098765, 'سما محمد القحطاني', 0548765490, 'الشرايع', 'موظفة المقصف');
+insert into Employee(username, password, job_no, name, phone, address, role) values(436007226, 5678, 769801, 'غيداء فيصل الحازمي', 0554589171, 'العمرة', 'مشرفه');
 
--- جدول الطلاب
--- ID هنا هو رقم الهوية
-create table Student(
-ID int not null,
-username int not null,
-name varchar(255) not null,
-class ENUM ('سادس', 'خامس','رابع') not null,
-grop ENUM ('أ', 'ب') not null,
-picture varchar(500),
-balance float not null,
-primary key(ID),
-Foreign key(username) references Guardian(username)
-);
+insert into Guardian(username, password, ID, name, phone, address) values(436016204, 5678, 337689, 'رولا محمد البركاتي', 0509709939, 'أبو عروه');
+insert into Guardian(username, password, ID, name, phone, address) values(436004676, 4321, 113254, 'ساره مبارك اللحياني', 0544707604, 'عين شمس');
+insert into Guardian(username, password, ID, name, phone, address) values(436018000, 9876, 223451, 'شيماء نادر الحربي', 0545944165, 'النوارية');
 
--- جدول التاق المرتبط بالطالب
-create table TagStudent(
-RFIDtag int not null,
-ID int not null,
-primary key(RFIDtag),
-Foreign key(ID) references Student(ID)
-);
+insert into Student(ID, username, name, class, grop, balance) values(0439, 436016204, 'مدى عبدالرحمن البركاتي', 'رابع', 'أ', 100);
+insert into Student(ID, username, name, class, grop, balance) values(6137, 436004676, 'لينه أسامة اللحياني', 'سادس', 'أ', 100);
+insert into Student(ID, username, name, class, grop, balance) values(7226, 436018000, 'بتول أحمد الحربي', 'خامس', 'ب', 150);
 
--- جدول الريدر الأول
-create table Reader1(
-ID int not null auto_increment,
-RFIDtag int not null,
-status int not null,
-date timestamp not null,
-primary key(ID)
-);
+insert into TagStudent(RFIDtag, ID) values(3333, 0439);
+insert into TagStudent(RFIDtag, ID) values(1111, 6137);
+insert into TagStudent(RFIDtag, ID) values(2222, 7226);
 
--- جدول الأعذار
-create table Excuse(
-ID int not null auto_increment,
-S_ID int not null,
-reason  varchar(255) not null,
-picture varchar(500),
-status ENUM ('مقبول', 'مرفوض'),
-primary key(ID),
-Foreign key(S_ID) references Student(ID)
-);
+insert into Reader1(RFIDtag, status) values(1144, 1);
+insert into Reader1(RFIDtag, status) values(1122, 1);
+insert into Reader1(RFIDtag, status) values(1133, 1);
+insert into Reader1(RFIDtag, status) values(1155, 0);
 
--- جدول الريدر ٢
-create table Reader2(
-ID int not null auto_increment,
-RFIDtag int not null,
-status int not null,
-date timestamp not null,
-primary key(ID)
-);
+insert into Excuse(S_ID, reason) values(0439, 'ظرف');
+insert into Excuse(S_ID, reason) values(6137, 'مرض');
+insert into Excuse(S_ID, reason) values(7226, 'سفر');
 
--- جدول عملية الدفع
-create table Pay(
-ID int not null auto_increment,
-S_ID int not null,
-value  float not null,
-status ENUM ('مقبول', 'مرفوض'),
-primary key(ID),
-Foreign key(S_ID) references Student(ID)
-);
+insert into Reader2(RFIDtag, status) values(1144, 1);
+insert into Reader2(RFIDtag, status) values(1111, 1);
+insert into Reader2(RFIDtag, status) values(2222, 1);
+insert into Reader2(RFIDtag, status) values(2222, 0);
 
--- جدول الاستئذان
-create table Dismissal(
-ID int not null auto_increment,
-S_ID int not null,
-reason  varchar(255) not null,
-name varchar(255) not null,
-N_ID int not null,
-relation varchar(255) not null,
-status ENUM ('مقبول', 'مرفوض'),
-primary key(ID),
-Foreign key(S_ID) references Student(ID)
-);
+insert into Pay(S_ID, value) values(0439, 15);
+insert into Pay(S_ID, value) values(6137, 10);
+insert into Pay(S_ID, value) values(7226, 15);
 
--- جدول الإيصال
-create table Receipt(
-ID int not null auto_increment,
-S_ID int not null,
-maxlimit int not null,
-picture varchar(500),
-status ENUM ('مقبول', 'مرفوض'),
-primary key(ID),
-Foreign key(S_ID) references Student(ID)
-);
+insert into Dismissal(S_ID, reason, name, N_ID, relation) values(0439, 'ظرف', 'عمر', 876543, 'أخ');
+insert into Dismissal(S_ID, reason, name, N_ID, relation) values(6137, 'ظرف', 'حسان', 123456, 'أخ');
+insert into Dismissal(S_ID, reason, name, N_ID, relation) values(7226, 'مطر', 'سامر', 987654, 'أخ');
+
+insert into Receipt(S_ID, maxlimit) values(0439, 10);
+insert into Receipt(S_ID, maxlimit) values(6137, 5);
+insert into Receipt(S_ID, maxlimit) values(7226, 5);
