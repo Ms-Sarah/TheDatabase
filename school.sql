@@ -1,38 +1,38 @@
 -- جدول مستخدمين النظام
-create table Users(
+create table SuperUser(
 username int  not null,
 password int  not null,
 primary key(username)
 );
 
 -- جدول الموظفين
--- ID هنا هو الرقم الوظيفي
 create table Employee(
-ID int not null,
 username int not null,
+password int not null,
+job_no int not null,
 name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
 picture varchar(500),
-type ENUM ('مشرفه', 'موظفة المقصف') not null,
-primary key(ID),
-Foreign key(username) references Users(username)
+role ENUM ('مشرفه', 'موظفة المقصف') not null,
+primary key(username),
 );
 
 -- جدول أولياء الأمور
 -- ID هنا هو رقم الهوية
 create table Guardian(
-ID int not null,
 username int not null,
+password int  not null,
+ID int not null,
 name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
 picture varchar(500),
-primary key(ID),
-Foreign key(username) references Users(username)
+primary key(username),
 );
 
 -- جدول الطلاب
+-- ID هنا هو رقم الهوية
 create table Student(
 ID int not null,
 G_ID int not null,
@@ -42,7 +42,7 @@ grop ENUM ('أ', 'ب') not null,
 picture varchar(500),
 balance float not null,
 primary key(ID),
-Foreign key(G_ID) references Guardian(ID)
+Foreign key(G_ID) references Guardian(username)
 );
 
 -- جدول التاق المرتبط بالطالب
