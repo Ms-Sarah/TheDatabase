@@ -8,7 +8,7 @@ phone int not null,
 address varchar(255) not null,
 picture varchar(500),
 role ENUM ('مشرفه', 'موظفة المقصف') not null,
-primary key(username),
+primary key(username)
 );
 
 -- جدول أولياء الأمور
@@ -21,21 +21,21 @@ name varchar(255) not null,
 phone int not null,
 address varchar(255) not null,
 picture varchar(500),
-primary key(username),
+primary key(username)
 );
 
 -- جدول الطلاب
 -- ID هنا هو رقم الهوية
 create table Student(
 ID int not null,
-G_ID int not null,
+username int not null,
 name varchar(255) not null,
 class ENUM ('سادس', 'خامس','رابع') not null,
 grop ENUM ('أ', 'ب') not null,
 picture varchar(500),
 balance float not null,
 primary key(ID),
-Foreign key(G_ID) references Guardian(username)
+Foreign key(username) references Guardian(username)
 );
 
 -- جدول التاق المرتبط بالطالب
